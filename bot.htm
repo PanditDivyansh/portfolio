@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bot</title>
+    <link rel="stylesheet" href="botcss.css">
+</head>
+<body>
+    <div id="output"></div>
+      
+<div id="container">
+    <input type="text" id="input" value="" placeholder="enter here">
+    <div class="geeks"></div>
+<br>
+<div class="loader">
+    <div class="center">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+</div>
+</div>
+
+<!-- jquery for enter key press -->      
+<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous">
+
+</script>
+<script>
+    var questionNum = 0;													// keep count of question, used for IF condition.
+var question = '<h1>hey ,<br> what is your name?</h1>';				  // first question
+
+var output = document.getElementById('output');				// store id="output" in output variable
+output.innerHTML = question;													// ouput first question
+
+function bot() { 
+    var input = document.getElementById("input").value;
+    console.log(input);
+
+    if (questionNum == 0) {
+    output.innerHTML = '<h1>hello ' + input + '</h1>';// output response
+    document.getElementById("input").value = "";   		// clear text box
+    question = '<h1>how old are you?</h1>';			    	// load next question		
+    setTimeout(timedQuestion, 2000);									// output next question after 2sec delay
+    }
+
+    else if (questionNum == 1) {
+    output.innerHTML = '<h1>That means you were born in ' + (2021 - input) + '</h1>';
+    document.getElementById("input").value = "";   
+    question = '<h1>where are you from?</h1>';					      	
+    setTimeout(timedQuestion, 2000);
+    }   
+    else if (questionNum == 2) {
+    output.innerHTML = '<h1>Great place! i will surely visit there once ' + '</h1>';
+    document.getElementById("input").value = "";   
+    question = '<h1>would you like to be friends with me?</h1><br><p>enter 1 for yes </p>';					      	
+    setTimeout(timedQuestion, 2000);
+    }  
+    else if (questionNum == 3) {
+     if( document.getElementById("input").value = 1){
+        output.innerHTML = '<h1>i know u like me ,my friend' + '</h1>';
+     }else{
+        output.innerHTML = '<h1>fuck you! ,bye' + '</h1>'
+        console.log('fuck u');
+     }
+    
+    document.getElementById("input").value = "";   
+    question = '<h1>would you like to be friends with me?</h1><br><p>enter yes or no </p>';					      	
+    setTimeout(timedQuestion, 2000);
+    }  
+}
+
+function timedQuestion() {
+    output.innerHTML = question;
+}
+
+//push enter key (using jquery), to run bot function.
+$(document).keypress(function(e) {
+  if (e.which == 13) {
+    bot();																						// run bot function when enter key pressed
+    questionNum++;																		// increase questionNum count by 1
+  }
+});
+
+</script>
+</body>
+</html>

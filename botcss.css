@@ -1,0 +1,165 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background:url(images/5798105.jpg);
+    background-size: cover;
+}
+
+h1, p {
+	font-family:  'Playfair Display', serif ;
+	text-align: center;
+	color: #FFDD70;
+	font-size:  60px;
+    text-transform: uppercase;
+    font-weight: 300;
+    animation: example 1000ms ease-in-out forwards infinite
+}
+
+
+p {
+	font-size: 30px;
+}
+
+#output, #container {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+
+input {
+    background-color: #eee;
+    border: none;
+    font-family: 'Playfair Display', serif ;
+    color: #000;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+.geeks {
+    width: 400px;
+    height: 2px;
+    background: none;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.geeks::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFDD70;
+    animation: animate 5s linear infinite;
+}
+
+.center {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+.wave {
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(45deg, #FFDD70, #fff);
+  margin: 10px;
+  animation: wave 1s linear infinite;
+  border-radius: 20px;
+}
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes animate {
+    0% {
+        left: 0;
+    }
+
+    50% {
+        left: 100%;
+    }
+
+    0% {
+        left: 0;
+    }
+}
+
+@keyframes example {
+    0%   {
+        filter: brightness(2);
+        filter: contrast(2);
+        -webkit-filter: brightness(1);
+        -webkit-filter: contrast(1);
+        text-shadow: 0 0 8px #FFDD70;
+    }
+    50%  {
+        filter: brightness(0.4);
+        filter: contrast(0.4);
+        -webkit-filter: brightness(0.4);
+        -webkit-filter: contrast(0.4);
+    }
+    100% {
+        filter: brightness(2);
+        filter: contrast(2);
+        -webkit-filter: brightness(1);
+        -webkit-filter: contrast(1);
+    }
+} 
+@media (max-width: 1000px) {
+    h1, p{
+        font-size: 35px;
+    }
+    
+   
+    .wave {
+        width: 3px;
+    }
+}
